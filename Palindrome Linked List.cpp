@@ -16,10 +16,10 @@
         }
     };
 
-*****************************************************************/
+*/
+
 #include<unordered_set>
 using namespace std;
-
 bool isPalindrome(LinkedListNode<int> *head) {
     vector<int> v;
     LinkedListNode<int> *temp = head;
@@ -27,12 +27,14 @@ bool isPalindrome(LinkedListNode<int> *head) {
         v.push_back(temp->data);
         temp = temp->next;
     }
-    int n = v.size();
-    for(int i = 0; i < n/2; i++) {
-        if(v[i] != v[n-i-1]) {
-            return false;
+    int start=0;
+    int end=v.size()-1;
+    while(start<end){
+        if (v[start] != v[end]) {
+          return false;
         }
+          start++;
+          end--;
     }
-    return true;
-}
-   
+        return true;
+    }
